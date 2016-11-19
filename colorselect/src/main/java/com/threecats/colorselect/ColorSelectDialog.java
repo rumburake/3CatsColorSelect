@@ -27,7 +27,7 @@ import android.util.Log;
 public class ColorSelectDialog extends Dialog {
 	
 	public interface OnColorSelectListener {
-		public void onNewColor(int color);
+		void onNewColor(int color);
 	}
 	
 	private OnColorSelectListener onColorSelectListener;
@@ -222,7 +222,4 @@ public class ColorSelectDialog extends Dialog {
 		});
 
 	}
-	
-	
-
 }

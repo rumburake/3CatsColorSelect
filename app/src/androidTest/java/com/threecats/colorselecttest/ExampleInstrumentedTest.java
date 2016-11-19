@@ -1,4 +1,4 @@
-package com.threecats.colorselect;
+package com.threecats.colorselecttest;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

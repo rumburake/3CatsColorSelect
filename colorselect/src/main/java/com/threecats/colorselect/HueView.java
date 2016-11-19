@@ -60,9 +60,9 @@ public class HueView extends View {
 		if (null == paint) {
 			paint = new Paint();
 			hueShader = new LinearGradient(0, 0, 0, getMeasuredHeight(), colors, null, TileMode.CLAMP);
+			paint.setShader(hueShader);
 		}
 		
-		paint.setShader(hueShader);
 		canvas.drawRect(0, 0, getMeasuredWidth(), getMeasuredHeight(), paint);
 		
 	}

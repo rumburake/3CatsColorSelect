@@ -1,4 +1,4 @@
-package com.threecats.colorselect;
+package com.threecats.colorselecttest;
 
 import org.junit.Test;
 

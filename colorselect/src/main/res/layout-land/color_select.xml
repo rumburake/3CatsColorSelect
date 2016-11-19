@@ -11,9 +11,25 @@
 		android:orientation="horizontal"
 		android:padding="@dimen/dimSpacer"
 		>
+		<com.threecats.colorselect.HueView
+			android:background="#aaf"
+			android:id="@+id/Hue"
+			android:layout_width="@dimen/dimStrip"
+			android:layout_height="@dimen/dimSquare"
+			android:layout_margin="@dimen/dimSpacer"
+			/>
+		<com.threecats.colorselect.SaturationValueView
+			android:layout_height="@dimen/dimSquare"
+			android:layout_width="@dimen/dimSquare"
+			android:background="#faa"
+			android:id="@+id/SatVal"
+			android:layout_toRightOf="@+id/Hue"
+			android:layout_margin="@dimen/dimSpacer"
+			/>
 	    <ImageView
     		android:layout_height="@dimen/dimPreview"
     		android:layout_width="@dimen/dimStrip"
+			android:layout_toRightOf="@+id/SatVal"
 	    	android:background="#aff"
 	    	android:id="@+id/OldColor"
 	    	android:layout_margin="@dimen/dimSpacer"
@@ -21,27 +37,12 @@
 	    <ImageView
 	    	android:layout_height="@dimen/dimPreview"
 	    	android:layout_width="@dimen/dimStrip"
+			android:layout_toRightOf="@+id/SatVal"
 	    	android:background="#ffa"
 	    	android:id="@+id/NewColor"
 	    	android:layout_below="@+id/OldColor"
 	    	android:layout_margin="@dimen/dimSpacer"
 	    />
-	    <com.threecats.colorselect.SaturationValueView
-	    	android:layout_height="@dimen/dimSquare"
-	    	android:layout_width="@dimen/dimSquare"
-           	android:background="#faa"
-	    	android:id="@+id/SatVal"
-	    	android:layout_toRightOf="@+id/OldColor"
-			android:layout_margin="@dimen/dimSpacer"
-		    />
-	    <com.threecats.colorselect.HueView
-	    	android:background="#aaf"
-	    	android:id="@+id/Hue"
-	    	android:layout_toRightOf="@+id/SatVal"
-	    	android:layout_width="@dimen/dimStrip"
-	    	android:layout_height="@dimen/dimSquare"
-			android:layout_margin="@dimen/dimSpacer"
-		/>
 		<ImageView
 			android:layout_height="@dimen/dimCursor"
 			android:layout_width="@dimen/dimCursor"

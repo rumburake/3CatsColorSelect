@@ -19,14 +19,15 @@ import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.Shader;
 import android.graphics.Shader.TileMode;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 
 public class SaturationValueView extends View {
 	
 	Paint paint;
-	Shader valueShader;
-	float color[] = {0, 1, 1};
+	Shader valueShader, saturationShader, composeShader;
+	int hueColorRgb;
 
 	/**
 	 * @param context
@@ -59,26 +60,36 @@ public class SaturationValueView extends View {
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
 
-		if (null == paint) {
-			paint = new Paint();
-			valueShader = new LinearGradient(0, 0, 0, getMeasuredHeight(), 0xffffffff, 0xff000000, TileMode.CLAMP);
-		}
-		
-		int rgb = Color.HSVToColor(color);
-		
-		Shader saturationShader = new LinearGradient(0, 0, getMeasuredWidth(), 0, 0xffffffff, rgb, TileMode.CLAMP);
-		Shader composedShader = new ComposeShader(saturationShader, valueShader, PorterDuff.Mode.MULTIPLY);
-		
-		paint.setShader(composedShader);
 		canvas.drawRect(0, 0, getMeasuredWidth(), getMeasuredHeight(), paint);
-		
 	}
 	
 	void setHue(float hue) {
-		color[0] = hue;
+		float hsv[] = {hue, 1, 1};
+		hueColorRgb = Color.HSVToColor(hsv);
+
+		setupShader();
+
 		invalidate();
 	}
-	
-	
 
+	void setupShader() {
+		if (null == paint) {
+			paint = new Paint();
+		}
+		valueShader = new LinearGradient(0, 0, 0, getMeasuredHeight(), 0xffffffff, 0xff000000, TileMode.CLAMP);
+		saturationShader = new LinearGradient(0, 0, getMeasuredWidth(), 0, 0xffffffff, hueColorRgb, TileMode.CLAMP);
+		composeShader = new ComposeShader(saturationShader, valueShader, PorterDuff.Mode.MULTIPLY);
+
+		paint.setShader(composeShader);
+	}
+
+	@Override
+	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
+			setLayerType(LAYER_TYPE_SOFTWARE, null);
+
+		setupShader();
+	}
 }
