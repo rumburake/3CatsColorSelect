@@ -2,6 +2,6 @@
 
 A simple user color selection library.
 
-## here Wiki here
+## See [Wiki](https://github.com/rumburake/3CatsColorSelect/wiki)
 
-## here license here
+## See [license](https://github.com/rumburake/3CatsColorSelect/blob/master/colorselect/NOTICE.txt)
