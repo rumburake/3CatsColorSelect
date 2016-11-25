@@ -5,4 +5,4 @@ Demo project for a simple user color selection library. Get the library at:
 
 ## See [Wiki](https://github.com/rumburake/3CatsColorSelect/wiki)
 
-## See [license](https://github.com/rumburake/3CatsColorSelect/blob/master/colorselect/NOTICE.txt)
+## See [license](https://github.com/rumburake/3CatsColorSelect/blob/master/NOTICE.txt)
