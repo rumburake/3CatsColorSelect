@@ -1,6 +1,7 @@
 # 3CatsColorSelect
 
-A simple user color selection library.
+Demo project for a simple user color selection library. Get the library at:
+[https://github.com/rumburake/colorselect]
 
 ## See [Wiki](https://github.com/rumburake/3CatsColorSelect/wiki)
 
