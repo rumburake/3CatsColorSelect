@@ -1,0 +1,4 @@
+[submodule "colorselect"]
+	path = colorselect
+	url = https://github.com/rumburake/colorselect.git
+	branch = master
