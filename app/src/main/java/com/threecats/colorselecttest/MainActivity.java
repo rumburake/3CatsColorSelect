@@ -6,9 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.threecats.colorselect.ColorSelect;
+import com.threecats.colorselect.ColorSelector;
 
-public class MainActivity extends AppCompatActivity implements ColorSelect.ColorSelectListener {
+public class MainActivity extends AppCompatActivity implements ColorSelector.ColorSelectedListener {
     Button mColorButton;
     int mColor = Color.RED;
     static final String state_color = "color";
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements ColorSelect.Color
         mColorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ColorSelect newFrag = ColorSelect.newInstance(mColor);
+                ColorSelector newFrag = ColorSelector.newInstance(mColor);
                 newFrag.show(getSupportFragmentManager(), "colorSelect");
             }
         });
